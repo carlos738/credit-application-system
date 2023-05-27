@@ -1,7 +1,38 @@
-  @Test
+private lateinit var validator: Validator
+    
+    @Before
+    fun setUp() {
+    val factory: ValidatorFactory = Validation.buildDefaultValidatorFactory()
+    validator = factory.validator
+}
+    @Test
     fun nameMinimumSizeCliente() {
     setUp()
-  val cliente: Cliente = Cliente("2", "cidade","teste@test.com","Feminino")
-  val violations: Set<ConstraintViolation<Cliente>> = validator.validate(cliente)
+    val cliente: Cliente = Cliente("0", "cidade","teste@test.com","feminino")
+    val violations: Set<ConstraintViolation<Cliente>> = validator.validate(cliente)
     assertFalse(violations.isEmpty())
-  }
+}
+
+    @Test
+    fun emailFormatCliente() {
+    setUp()
+    val cliente: Cliente = Cliente("pqrs", "cidade","2321","feminino")
+    val violations: Set<ConstraintViolation<Cliente>> = validator.validate(cliente)
+    assertFalse(violations.isEmpty())
+}
+    @Test
+    fun nameMinimumSizeContact() {
+    setUp()
+    val contato: Contact = Contact("k", "csd@test.com","MESSAGE TEST!")
+    val violations: Set<ConstraintViolation<Contact>> = validator.validate(contact)
+    assertFalse(violations.isEmpty())
+}
+
+    @Test
+    fun emailFormatContato() {
+    setUp()
+    val contato: Contact = Contact("pqrs", "2321","mensagem teste!")
+    val violations: Set<ConstraintViolation<Contact>> = validator.validate(contact)
+    assertFalse(violations.isEmpty())
+}
+}
