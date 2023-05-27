@@ -1,0 +1,7 @@
+  @Test
+    fun nameMinimumSizeCliente() {
+    setUp()
+  val cliente: Cliente = Cliente("2", "cidade","teste@test.com","Feminino")
+  val violations: Set<ConstraintViolation<Cliente>> = validator.validate(cliente)
+    assertFalse(violations.isEmpty())
+  }
