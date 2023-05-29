@@ -84,12 +84,13 @@ class CreditServiceTest {
     )
 
     private fun buildCustomer(
-        firstName: String = "James",
+        firstName: String = "James",     
         lastName: String = "jones",
         cpf: String = "2847509905",
         email: String = "jonesa@gmail.com",
         password: String = "99045",
         zipCode: String = "99045",
+        cidade: String= "Guaratinguetá",
         street: String = "Rua São Paulo",
         income: BigDecimal = BigDecimal.valueOf(1000.0),
         id: Long = 1L
